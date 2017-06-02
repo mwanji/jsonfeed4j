@@ -1,7 +1,9 @@
 package jsonfeed4j;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.function.BooleanSupplier;
+import java.util.Map;
+import java.util.Optional;
 
 public class JsonFeed {
   
@@ -16,6 +18,7 @@ public class JsonFeed {
   private String icon;
   private String favicon;
   private boolean expired;
+  private Map<String, Object> extensions = Collections.emptyMap();
 
   public Versions getVersion() {
     return version;
@@ -29,35 +32,49 @@ public class JsonFeed {
     return items;
   }
 
-  public String getHomePageUrl() {
-    return homePageUrl;
+  public Optional<String> getHomePageUrl() {
+    return Optional.ofNullable(homePageUrl);
   }
 
-  public String getFeedUrl() {
-    return feedUrl;
+  public Optional<String> getFeedUrl() {
+    return Optional.ofNullable(feedUrl);
   }
 
-  public String getDescription() {
-    return description;
+  public Optional<String> getDescription() {
+    return Optional.ofNullable(description);
   }
 
-  public String getUserComment() {
-    return userComment;
+  public Optional<String> getUserComment() {
+    return Optional.ofNullable(userComment);
   }
 
-  public String getNextUrl() {
-    return nextUrl;
+  public Optional<String> getNextUrl() {
+    return Optional.ofNullable(nextUrl);
   }
   
-  public String getIcon() {
-    return icon;
+  public Optional<String> getIcon() {
+    return Optional.ofNullable(icon);
   }
 
-  public String getFavicon() {
-    return favicon;
+  public Optional<String> getFavicon() {
+    return Optional.ofNullable(favicon);
   }
 
   public boolean isExpired() {
     return expired;
+  }
+
+  public Object getExtension(String key) {
+    return extensions.get(key);
+  }
+
+  @SuppressWarnings("unchecked")
+  public Map<String, Object> getExtensionMap(String key) {
+    return (Map<String, Object>) extensions.get(key);
+  }
+
+  @SuppressWarnings("unchecked")
+  public List<Object> getExtensionList(String key) {
+    return (List<Object>) extensions.get(key);
   }
 }

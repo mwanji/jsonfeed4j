@@ -6,6 +6,7 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.nio.file.Path;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -19,7 +20,10 @@ import jsonfeed4j.Versions;
 
 public class GsonJsonFeedReader implements JsonFeedReader {
   
-  private final Gson gson = new GsonBuilder().registerTypeAdapter(Versions.class, new VersionsDeserializer()).create();
+  private final Gson gson = new GsonBuilder()
+      .registerTypeAdapter(Versions.class, new VersionsDeserializer())
+      .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+      .create();
   
   @Override
   public JsonFeed read(String jsonFeed) {

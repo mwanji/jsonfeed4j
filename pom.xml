@@ -26,6 +26,9 @@
 		<connection>scm:git:git://github.com/mwanji/jsonfeed4j.git</connection>
 		<url>https://github.com/mwanji/jsonfeed4j</url>
 	</scm>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>javax.validation</groupId>

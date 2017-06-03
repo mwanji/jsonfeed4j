@@ -64,17 +64,7 @@ public class JsonFeed {
     return expired;
   }
 
-  public Object getExtension(String key) {
-    return extensions.get(key);
-  }
-
-  @SuppressWarnings("unchecked")
-  public Map<String, Object> getExtensionMap(String key) {
-    return (Map<String, Object>) extensions.get(key);
-  }
-
-  @SuppressWarnings("unchecked")
-  public List<Object> getExtensionList(String key) {
-    return (List<Object>) extensions.get(key);
+  public Extensions getExtensions() {
+    return new Extensions(extensions);
   }
 }

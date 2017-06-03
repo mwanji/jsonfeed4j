@@ -19,6 +19,7 @@ public class JsonFeed {
   private String favicon;
   private boolean expired;
   private Author author;
+  private List<Hub> hubs = Collections.emptyList();
   private Map<String, Object> extensions = Collections.emptyMap();
 
   public Version getVersion() {
@@ -71,5 +72,9 @@ public class JsonFeed {
 
   public Extensions getExtensions() {
     return new Extensions(extensions);
+  }
+
+  public List<Hub> getHubs() {
+    return hubs;
   }
 }

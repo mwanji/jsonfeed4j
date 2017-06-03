@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public class JsonFeed {
   
-  private Versions version;
+  private Version version;
   private String title;
   private List<Item> items;
   private String homePageUrl;
@@ -21,7 +21,7 @@ public class JsonFeed {
   private Author author;
   private Map<String, Object> extensions = Collections.emptyMap();
 
-  public Versions getVersion() {
+  public Version getVersion() {
     return version;
   }
 

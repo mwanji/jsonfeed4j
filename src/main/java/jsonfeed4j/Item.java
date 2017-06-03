@@ -22,6 +22,7 @@ public class Item {
   private ZonedDateTime dateModified;
   private Author author;
   private List<String> tags = Collections.emptyList();
+  private List<Attachment> attachments = Collections.emptyList();
   
   public String getId() {
     return id;
@@ -77,5 +78,9 @@ public class Item {
 
   public Optional<Author> getAuthor() {
     return Optional.ofNullable(author);
+  }
+
+  public List<Attachment> getAttachments() {
+    return attachments ;
   }
 }

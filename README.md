@@ -28,11 +28,44 @@ jsonFeed.getItems().stream().map(Item::getUrl).forEach(System.out::println);
 
 ## Validation
 
-jsonfeed4j uses standard [Bean Validation 1.1](http://beanvalidation.org) ([spec](http://beanvalidation.org/1.1/spec/)) annotations to enforce JSON Feed's required fields. However, no JSR 303 implementation is included, so validation can be performed with whichever implementation you prefer, such as Hibernate Validator.
+jsonfeed4j uses standard [Bean Validation 1.1](http://beanvalidation.org) ([spec](http://beanvalidation.org/1.1/spec/)) annotations to enforce JSON Feed's required fields. However, no implementation is included, so validation can be performed with whichever implementation you prefer, such as Hibernate Validator.
 
 ```java
 Validator validator = getValidator();
 JsonFeed jsonFeed = getJsonFeed();
 
 Set<ConstraintViolations<?>> violations = validator.validate(jsonFeed);
+```
+
+Optional fields are mostly wrapped in an `Optional`. However, the fields of objects such as `Author` that are semi-optional are not wrapped in an `Optional`. In these cases, Bean Validation is a more representative way of handling the data appropriately. Yes, there's a tradeoff between safety and convenience.
+
+## Extensions
+
+JSON Feed allows extensions at every level. All jsonfeed4j model classes have a `Extensions getExtensions()` method. From the `Extensions` object, you can retrieve the extension's root by its name without the underscore. For example:
+
+```json
+{
+  "_plugin1": {
+    "key": "value"
+  },
+  "_plugin2": [ "a", "b", "c"],
+  "_plugin3": "value2",
+  "items": [
+    {
+      "id": "http://example.org/1",
+      "content_text": "Some text",
+      "_plugin4": 1234
+    }
+  ]
+}
+```
+
+```java
+JsonFeed jsonFeed = getJsonFeed();
+Extensions topLevelExtensions = jsonFeed.getExtensions();
+
+Map<String, ?> plugin1 = topLevelExtensions.getMap("plugin1");
+List<?> plugin2 = topLevelExtensions.getList("plugin2");
+Object plugin3 = topLevelExtensions.get("value2");
+Object plugin4 = jsonFeed.getItems().get(0).getExtensions("plugin4");
 ```

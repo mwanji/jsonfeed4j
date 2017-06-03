@@ -4,6 +4,8 @@ jsonfeed4j is a [JSON Feed](https://jsonfeed.org) reader and writer for Java 8+.
 
 ## Installation
 
+Requires Java 1.8 or above.
+
 Add the following dependency to your POM (or equivalent for other dependency managers):
 
 ```xml
@@ -14,13 +16,13 @@ Add the following dependency to your POM (or equivalent for other dependency man
 </dependency>
 ```
 
-Requires Java 1.8 or above.
+This binds jsonfeed4j to the Gson JSON library. If you wish to use another JSON library, you must implement your own `JsonFeedReader`.
 
 ## Quick Start
 
 ```java
 JsonFeed jsonFeed = new GsonJsonFeedReader().read(getJsonFeedFile());
-jsonFeed.getAuthor();
+System.out.println("Author: " + jsonFeed.getAuthor());
 jsonFeed.getItems().stream().map(Item::getUrl).forEach(System.out::println);
 ```
 
@@ -34,5 +36,3 @@ JsonFeed jsonFeed = getJsonFeed();
 
 Set<ConstraintViolations<?>> violations = validator.validate(jsonFeed);
 ```
-
-

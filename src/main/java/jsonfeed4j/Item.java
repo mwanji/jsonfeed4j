@@ -6,8 +6,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import validation.ValidItemContent;
+
+@ValidItemContent
 public class Item {
 
+  @NotNull @Size(min = 1)
   private String id;
   private String contentText;
   private String contentHtml;
@@ -20,6 +28,7 @@ public class Item {
   private String bannerImage;
   private ZonedDateTime datePublished;
   private ZonedDateTime dateModified;
+  @Valid
   private Author author;
   private List<String> tags = Collections.emptyList();
   private List<Attachment> attachments = Collections.emptyList();

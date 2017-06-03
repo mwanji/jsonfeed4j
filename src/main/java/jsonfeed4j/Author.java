@@ -1,5 +1,8 @@
 package jsonfeed4j;
 
+import validation.ValidAuthor;
+
+@ValidAuthor
 public class Author {
 
   private String name;

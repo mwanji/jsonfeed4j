@@ -20,7 +20,8 @@ public class Item {
   private String bannerImage;
   private ZonedDateTime datePublished;
   private ZonedDateTime dateModified;
-  private List<String> tags;
+  private Author author;
+  private List<String> tags = Collections.emptyList();
   
   public String getId() {
     return id;
@@ -70,7 +71,11 @@ public class Item {
     return Optional.ofNullable(dateModified);    
   }
 
-  public Optional<List<String>> getTags() {
-    return Optional.ofNullable(tags);
+  public List<String> getTags() {
+    return tags;
+  }
+
+  public Optional<Author> getAuthor() {
+    return Optional.ofNullable(author);
   }
 }

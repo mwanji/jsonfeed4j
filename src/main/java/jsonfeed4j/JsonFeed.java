@@ -18,6 +18,7 @@ public class JsonFeed {
   private String icon;
   private String favicon;
   private boolean expired;
+  private Author author;
   private Map<String, Object> extensions = Collections.emptyMap();
 
   public Versions getVersion() {
@@ -62,6 +63,10 @@ public class JsonFeed {
 
   public boolean isExpired() {
     return expired;
+  }
+  
+  public Optional<Author> getAuthor() {
+    return Optional.ofNullable(author);
   }
 
   public Extensions getExtensions() {

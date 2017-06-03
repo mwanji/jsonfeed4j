@@ -37,7 +37,10 @@ JsonFeed jsonFeed = getJsonFeed();
 Set<ConstraintViolations<?>> violations = validator.validate(jsonFeed);
 ```
 
-Optional fields are mostly wrapped in an `Optional`. However, the fields of objects such as `Author` that are semi-optional are not wrapped in an `Optional`. In these cases, Bean Validation is a more representative way of handling the data appropriately. Yes, there's a tradeoff between safety and convenience.
+Optional fields are mostly wrapped in an `Optional`. However, there are two categories of exceptions:
+
+- Optional multi-valued fields return an empty `List` if they are not present
+- Fields that are semi-optional are not wrapped in an `Optional`. In these cases, Bean Validation is a more representative way of handling the data appropriately. Examples include `item.content_text` and `item.content_text`. While both are optional, at least one must be present. Yes, there's a tradeoff between safety and convenience.
 
 ## Extensions
 

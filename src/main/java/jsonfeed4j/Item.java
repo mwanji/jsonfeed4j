@@ -1,13 +1,26 @@
 package jsonfeed4j;
 
+import java.time.ZonedDateTime;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class Item {
 
   private String id;
   private String contentText;
+  private String contentHtml;
   private Map<String, Object> extensions = Collections.emptyMap();
+  private String url;
+  private String externalUrl;
+  private String title;
+  private String summary;
+  private String image;
+  private String bannerImage;
+  private ZonedDateTime datePublished;
+  private ZonedDateTime dateModified;
+  private List<String> tags;
   
   public String getId() {
     return id;
@@ -19,5 +32,45 @@ public class Item {
 
   public Extensions getExtensions() {
     return new Extensions(extensions);
+  }
+  
+  public String getContentHtml() {
+    return contentHtml;
+  }
+  
+  public Optional<String> getUrl() {
+    return Optional.ofNullable(url);    
+  }
+  
+  public Optional<String> getExternalUrl() {
+    return Optional.ofNullable(externalUrl);    
+  }
+  
+  public Optional<String> getTitle() {
+    return Optional.ofNullable(title);    
+  }
+  
+  public Optional<String> getSummary() {
+    return Optional.ofNullable(summary);    
+  }
+  
+  public Optional<String> getImage() {
+    return Optional.ofNullable(image);    
+  }
+  
+  public Optional<String> getBannerImage() {
+    return Optional.ofNullable(bannerImage);    
+  }
+  
+  public Optional<ZonedDateTime> getDatePublished() {
+    return Optional.ofNullable(datePublished);    
+  }
+  
+  public Optional<ZonedDateTime> getDateModified() {
+    return Optional.ofNullable(dateModified);    
+  }
+
+  public Optional<List<String>> getTags() {
+    return Optional.ofNullable(tags);
   }
 }

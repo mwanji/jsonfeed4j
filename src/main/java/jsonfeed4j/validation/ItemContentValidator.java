@@ -1,6 +1,6 @@
-package validation;
+package jsonfeed4j.validation;
 
-import static validation.Utils.isNotEmpty;
+import static jsonfeed4j.validation.Utils.isNotEmpty;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

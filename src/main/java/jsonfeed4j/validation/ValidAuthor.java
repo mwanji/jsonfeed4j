@@ -1,4 +1,4 @@
-package validation;
+package jsonfeed4j.validation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

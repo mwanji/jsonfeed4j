@@ -1,4 +1,4 @@
-package validation;
+package jsonfeed4j.validation;
 
 class Utils {
 

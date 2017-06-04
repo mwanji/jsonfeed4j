@@ -3,7 +3,7 @@ package jsonfeed4j;
 import java.util.Collections;
 import java.util.Map;
 
-import validation.ValidAuthor;
+import jsonfeed4j.validation.ValidAuthor;
 
 @ValidAuthor
 public class Author {

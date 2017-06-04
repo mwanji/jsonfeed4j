@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import validation.ValidItemContent;
+import jsonfeed4j.validation.ValidItemContent;
 
 @ValidItemContent
 public class Item {

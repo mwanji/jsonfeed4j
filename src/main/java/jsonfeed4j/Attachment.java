@@ -5,10 +5,15 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.activation.MimeType;
+import javax.validation.constraints.NotNull;
+
+import jsonfeed4j.validation.RequiredString;
 
 public class Attachment {
 
+  @RequiredString
   private String url;
+  @NotNull
   private MimeType mimeType;
   private String title;
   private Long sizeInBytes;

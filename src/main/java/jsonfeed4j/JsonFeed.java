@@ -5,10 +5,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import jsonfeed4j.validation.RequiredString;
+
 public class JsonFeed {
   
+  @NotNull
   private Version version;
+  @RequiredString
   private String title;
+  @Valid
   private List<Item> items;
   private String homePageUrl;
   private String feedUrl;
@@ -18,7 +26,9 @@ public class JsonFeed {
   private String icon;
   private String favicon;
   private boolean expired;
+  @Valid
   private Author author;
+  @Valid
   private List<Hub> hubs = Collections.emptyList();
   private Map<String, Object> extensions = Collections.emptyMap();
 

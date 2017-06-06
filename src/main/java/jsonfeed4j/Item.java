@@ -7,15 +7,14 @@ import java.util.Map;
 import java.util.Optional;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
+import jsonfeed4j.validation.RequiredString;
 import jsonfeed4j.validation.ValidItemContent;
 
 @ValidItemContent
 public class Item {
 
-  @NotNull @Size(min = 1)
+  @RequiredString
   private String id;
   private String contentText;
   private String contentHtml;

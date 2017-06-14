@@ -14,6 +14,6 @@ public class AuthorValidator implements ConstraintValidator<ValidAuthor, Author>
 
   @Override
   public boolean isValid(Author author, ConstraintValidatorContext context) {
-    return isNotEmpty(author.getName()) || isNotEmpty(author.getAvatar()) || isNotEmpty(author.getUrl());
+    return isNotEmpty(author.getName().orElse("")) || isNotEmpty(author.getAvatar().orElse("")) || isNotEmpty(author.getUrl().orElse(""));
   }
 }

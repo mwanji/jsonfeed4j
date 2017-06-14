@@ -14,7 +14,7 @@ public class ItemContentValidator implements ConstraintValidator<ValidItemConten
 
   @Override
   public boolean isValid(Item item, ConstraintValidatorContext context) {
-    return isNotEmpty(item.getContentText()) || isNotEmpty(item.getContentHtml());
+    return isNotEmpty(item.getContentText().orElse("")) || isNotEmpty(item.getContentHtml().orElse(""));
   }
   
 }

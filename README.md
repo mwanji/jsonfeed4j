@@ -22,13 +22,15 @@ This binds jsonfeed4j to the Gson JSON library. If you wish to use another JSON 
 
 ```java
 JsonFeed jsonFeed = new GsonJsonFeedReader().read(getJsonFeedFile());
-System.out.println("Author: " + jsonFeed.getAuthor());
+System.out.println("Author: " + jsonFeed.getAuthor().orElse(""));
 jsonFeed.getItems().stream().map(Item::getUrl).forEach(System.out::println);
 ```
 
 ## Validation
 
-jsonfeed4j uses standard [Bean Validation 1.1](http://beanvalidation.org) ([spec](http://beanvalidation.org/1.1/spec/)) annotations to enforce JSON Feed's required fields. However, no implementation is included, so validation can be performed with whichever implementation you prefer, such as Hibernate Validator.
+jsonfeed4j uses standard [Bean Validation 1.1](http://beanvalidation.org) ([spec](http://beanvalidation.org/1.1/spec/)) annotations to enforce JSON Feed's required fields. However, no implementation is included, so validation can be performed with whichever implementation you prefer, such as Hibernate Validator. Custom validators are provided for cases in which there are several optional fields, but at least one must be present. Examples include `item.content_text` and `item.content_text`.
+
+Optional fields are wrapped in an `Optional` to make it obvious.
 
 ```java
 Validator validator = getValidator();
@@ -36,11 +38,6 @@ JsonFeed jsonFeed = getJsonFeed();
 
 Set<ConstraintViolations<?>> violations = validator.validate(jsonFeed);
 ```
-
-Optional fields are mostly wrapped in an `Optional`. However, there are two categories of exceptions:
-
-- Optional multi-valued fields return an empty `List` if they are not present
-- Fields that are semi-optional are not wrapped in an `Optional`. In these cases, Bean Validation is a more representative way of handling the data appropriately. Examples include `item.content_text` and `item.content_text`. While both are optional, at least one must be present. Yes, there's a tradeoff between safety and convenience.
 
 ## Extensions
 

@@ -2,6 +2,7 @@ package jsonfeed4j;
 
 import java.util.Collections;
 import java.util.Map;
+import java.util.Optional;
 
 import jsonfeed4j.validation.ValidAuthor;
 
@@ -13,16 +14,16 @@ public class Author {
   private String avatar;
   private Map<String, Object> extensions = Collections.emptyMap();
   
-  public String getName() {
-    return name;
+  public Optional<String> getName() {
+    return Optional.ofNullable(name);
   }
   
-  public String getUrl() {
-    return url;
+  public Optional<String>getUrl() {
+    return Optional.ofNullable(url);
   }
   
-  public String getAvatar() {
-    return avatar;
+  public Optional<String> getAvatar() {
+    return Optional.ofNullable(avatar);
   }
 
   public Extensions getExtensions() {

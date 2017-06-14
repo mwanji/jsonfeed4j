@@ -36,16 +36,12 @@ public class Item {
     return id;
   }
   
-  public String getContentText() {
-    return contentText;
-  }
-
-  public Extensions getExtensions() {
-    return new Extensions(extensions);
+  public Optional<String> getContentText() {
+    return Optional.ofNullable(contentText);
   }
   
-  public String getContentHtml() {
-    return contentHtml;
+  public Optional<String> getContentHtml() {
+    return Optional.ofNullable(contentHtml);
   }
   
   public Optional<String> getUrl() {
@@ -90,5 +86,9 @@ public class Item {
 
   public List<Attachment> getAttachments() {
     return attachments ;
+  }
+
+  public Extensions getExtensions() {
+    return new Extensions(extensions);
   }
 }

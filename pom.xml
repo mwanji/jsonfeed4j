@@ -100,4 +100,8 @@
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
+	<issueManagement>
+		<system>Github Issues</system>
+		<url>https://github.com/mwanji/jsonfeed4j/issues</url>
+	</issueManagement>
 </project>

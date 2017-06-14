@@ -22,8 +22,8 @@
 	<url>https://mwanji.github.com/jsonfeed4j</url>
 	<inceptionYear>2017-06-02</inceptionYear>
 	<scm>
-		<developerConnection>scm:git:ssh://github.com:mwanji/jsonfeed4j.git</developerConnection>
-		<connection>scm:git:git://github.com/mwanji/jsonfeed4j.git</connection>
+		<connection>scm:git:git@github.com/mwanji/jsonfeed4j.git</connection>
+		<developerConnection>scm:git:git@github.com:mwanji/jsonfeed4j.git</developerConnection>
 		<url>https://github.com/mwanji/jsonfeed4j</url>
 	</scm>
 	<properties>

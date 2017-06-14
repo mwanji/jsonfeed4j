@@ -67,5 +67,5 @@ Extensions topLevelExtensions = jsonFeed.getExtensions();
 Map<String, ?> plugin1 = topLevelExtensions.getMap("plugin1");
 List<?> plugin2 = topLevelExtensions.getList("plugin2");
 Object plugin3 = topLevelExtensions.get("value2");
-Object plugin4 = jsonFeed.getItems().get(0).getExtensions("plugin4");
+Object plugin4 = jsonFeed.getItems().get(0).getExtensions().get("plugin4");
 ```
